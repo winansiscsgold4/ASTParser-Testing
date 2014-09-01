@@ -1,15 +1,20 @@
 import org.eclipse.jdt.core.dom.*;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
 
 	static String lines[];
+	static String source;
 
 	//use ASTParse to parse string
 	public static void parse(String str) {
+
 		ASTParser parser = ASTParser.newParser(AST.JLS3);
 		parser.setSource(str.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
@@ -21,6 +26,7 @@ public class Main {
 			Set names = new HashSet();
 
 
+			@Override
 			public boolean visit(VariableDeclarationFragment node) {
 				SimpleName name = node.getName();
 				String type = "";
@@ -69,11 +75,30 @@ public class Main {
 				return false; // do not continue 
 			}
 
+			@Override
 			public boolean visit(SimpleName node) {
 //				if (this.names.contains(node.getIdentifier())) {
 //					System.out.println("Usage of '" + node + "' at line "
 //							+ cu.getLineNumber(node.getStartPosition()));
 //				}
+				return true;
+			}
+
+
+			@Override
+			public boolean visit(ReturnStatement node) {
+				System.out.println("Return statment found on line " + cu.getColumnNumber(node.getStartPosition()));
+
+				return true;
+			}
+
+			@Override
+			public boolean visit(BlockComment node) {
+				int start = node.getStartPosition();
+				int end = start + node.getLength();
+				String comment = source.substring(start, end);
+				System.out.println("Comment on " + start + ", " + end);
+				System.out.println(comment);
 				return true;
 			}
 		});
@@ -101,6 +126,7 @@ public class Main {
 		}
 
 		reader.close();
+		source = fileData.toString();
 		lines = fileData.toString().split(System.getProperty("line.separator"));
 		return fileData.toString();
 	}

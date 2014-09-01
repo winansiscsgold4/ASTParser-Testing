@@ -1,0 +1,78 @@
+//Ben Scholer
+//G4
+//2/44/2014
+//This program will request name and address info from the user, allow the user
+//to change incorrect info, and allow the usaer to print out an address label.
+
+//print menu
+//ask for name and address
+//print label
+//allow user to quit
+//instantiate object of the AddressScholer class
+
+import java.util.*;
+
+public class CarpetDriverScholer {
+
+	static Scanner reader = new Scanner(System.in);
+    static ArrayList<CarpetScholer> list = new ArrayList<CarpetScholer>();
+
+	public static void main(String args[]) {
+		int choice;		//stores the user's choice
+		while (true) {
+			choice = getChoice();
+			if (choice == 1) {
+
+			} //end of if
+			else if (choice ==  2) label.setName(getName());
+			else if (choice == 3) label.setStreet(getStreet());
+			else if (choice == 4) label.setCity(getCity());
+			else if (choice == 5) label.setStateZip(getStateZip());
+			else printLabel();
+		} //end of while loop
+	} //end of main method
+
+	public static int getChoice() {
+		String menu = "1) Enter Custom Quote\n2) Enter Default Quote\n3)" +
+			" Print All Quotes\n4) Quit\n\nChoice:\t";
+		int choice; 	//stores user's choice
+		while (true) {
+			System.out.println();
+			System.out.print(menu);
+			choice = reader.nextInt();
+			reader.nextLine(); 	//consume
+			if (choice > 4 || choice < 1)
+				System.out.println("\n\tPlease enter valid data.\n");
+			else if (choice == 4)
+				System.exit(69);
+			else
+				break;
+		} //end of while loop
+		System.out.println();
+		return choice;
+	} //end of getChoice method
+
+	public static String getName() {
+		System.out.print("Name: ");
+		return reader.nextLine();
+	} //end of getName class
+
+	public static String getStreet() {
+		System.out.print("Street: ");
+		return reader.nextLine();
+	} //end of getStreet method
+
+	public static String getCity() {
+		System.out.print("City: ");
+		return reader.nextLine();
+	} //end of getCity method
+
+	public static String getStateZip() {
+		System.out.print("State, Zip: ");
+		return reader.nextLine();
+	} //end of getStateZip method
+
+	public static void printLabel() {
+		System.out.println(label);
+	} //end of printLabel method
+} //end of AddressScholerDriver class
