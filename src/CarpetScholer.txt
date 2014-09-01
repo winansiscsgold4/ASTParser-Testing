@@ -1,0 +1,103 @@
+//Ben Scholer
+//G4
+//3/11/14
+//This Server will store one address and four measurments. there will be getter
+//and setter methods for each instance variable
+
+import java.text.NumberFormat;
+
+public class CarpetScholer {
+
+	private NumberFormat green = NumberFormat.getCurrencyInstance();
+
+	private int lengthFt;
+	private int lengthIn;
+	private int widthFt;
+	private int widthIn;
+    private Address address;
+
+    public CarpetScholer() {
+
+    } //end of default constructor
+
+    public CarpetScholer(int lenFt, int lenIn, int widFt,
+    		int widIn, Address addr) {
+        setLengthFt(lenFt);
+        setLengthIn(lenIn);
+        setWidthFt(widFt);
+        setWidthFt(widIn);
+        addr = address;
+	} //end of not default constructor
+
+    public Address getAddr() {
+        return address;
+    } //end of getAddr method
+
+    public void setAddr(Address addr) {
+        address = addr;
+    } //end of setAddr method
+
+    public int getLengthFt() {
+        return lengthFt;
+    } //end of getLengthFt method
+
+    public void setLengthFt(int lenFt) {
+        lengthFt = lenFt;
+    } //end of setLengthFt method
+
+    public int getLengthIn() {
+        return lengthIn;
+    } //end of getLengthIn method
+
+    public void setLengthIn(int lenIn) {
+        lengthIn = lenIn;
+    } //end of setLengthIn method
+
+    public int getWidthFt() {
+        return widthFt;
+    } //end of getWidthFt method
+
+    public void setWidthFt(int widFt) {
+        widthFt = widFt;
+    } //end of setWidthFt method
+
+    public int getWidthIn() {
+        return widthIn;
+    } //end of getWidthIn method
+
+    public void setWidthIn(int widIn) {
+        widthIn = widIn;
+    } //end of setWidthIn method
+
+    public int getSquareInches() {
+    	return (((getLengthFt() * 12) + getLengthIn()) *
+    		((getWidthFt() * 12) + getWidthIn()));
+    } //end of getSquareInches method
+
+    public double getSquareFeet() {
+    	return (getSquareInches() / 12);
+    } //end of getSquareFeet method
+
+    public double getCarpetCost() {
+    	return (getSquareFeet() * 2.5);
+    } //end of getCarpetCost method
+
+    public double getLaborCost() {
+    	return (getSquareFeet() * 1.85);
+    } //end of getLaborCost method
+
+    public double getTotalCost() {
+    	return (getCarpetCost() + getLaborCost());
+    } //end of getTotalCost method
+
+    public String toString() {
+		String toReturn;
+		toReturn = (address + "\n\nLength Feet: " + getLenthFt() + "\t\t" +
+			"Length Inches: " + getLengthIn() + "\n\nWidth Feet: " +
+				getWidthFt() + "\t\tWidthIn()" + getWidthIn() + "\n\nMATERIAL" +
+					" COST:\t\t" + green.format(getCarpetCost()) +
+						"\nLABOR COST:\t\t" + green.format(getLaborCost()) +
+							"\nTOTAL DECK COST:\t\t" +
+								green.format(getTotalCost()));
+    } //end of toString method
+} //end of CarpetScholer class
