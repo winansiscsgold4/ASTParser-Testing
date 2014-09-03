@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -65,8 +66,66 @@ public class NewMain {
 			//get method return type
 			Type returnType = method.getReturnType2();
 			System.out.println("method return type:" + returnType);
-		}
-	}
+
+			//get method body
+			Block body=method.getBody();
+			List statements=body.statements();   //get the statements of the method body
+			Iterator iter=statements.iterator();
+			while(iter.hasNext())
+			{
+				//get each statement
+				Statement stmt=(Statement)iter.next();
+
+				if(stmt instanceof ExpressionStatement)
+			{
+				ExpressionStatement expressStmt=(ExpressionStatement) stmt;
+				Expression express=expressStmt.getExpression();
+
+				if(express instanceof Assignment)
+				{
+					Assignment assign=(Assignment)express;
+					System.out.println("LHS:"+assign.getLeftHandSide()+"; ");
+					System.out.println("Op:"+assign.getOperator()+"; ");
+					System.out.println("RHS:"+assign.getRightHandSide());
+
+				}
+				else if(express instanceof MethodInvocation)
+				{
+					MethodInvocation mi=(MethodInvocation) express;
+					System.out.println("invocation name:"+mi.getName());
+					System.out.println("invocation exp:"+mi.getExpression());
+					System.out.println("invocation arg:"+mi.arguments());
+
+				}
+				System.out.println();
+
+			}
+				if(stmt instanceof ExpressionStatement)
+				{
+					ExpressionStatement expressStmt=(ExpressionStatement) stmt;
+					Expression express=expressStmt.getExpression();
+
+					if(express instanceof Assignment)
+					{
+						Assignment assign=(Assignment)express;
+						System.out.println("LHS:"+assign.getLeftHandSide()+"; ");
+						System.out.println("Op:"+assign.getOperator()+"; ");
+						System.out.println("RHS:"+assign.getRightHandSide());
+
+					}
+					else if(express instanceof MethodInvocation)
+					{
+						MethodInvocation mi=(MethodInvocation) express;
+						System.out.println("invocation name:"+mi.getName());
+						System.out.println("invocation exp:"+mi.getExpression());
+						System.out.println("invocation arg:"+mi.arguments());
+
+					}
+					System.out.println();
+
+				}
+			}
+
 
 	public static String readFileToString(String filePath) throws IOException {
 		StringBuilder fileData = new StringBuilder(1000);
