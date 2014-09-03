@@ -1,4 +1,3 @@
-import com.sun.javafx.fxml.PropertyName;
 import org.eclipse.jdt.core.dom.*;
 
 import java.io.BufferedReader;
@@ -44,8 +43,6 @@ public class Main {
 					List
 
 				 */
-
-				node.getProperty()
 //				if (line.contains("byte")) type = "byte";
 //				else if (line.contains("short")) type = "short";
 //				else if (line.contains("int")) type = "int";
