@@ -1,0 +1,10 @@
+document.writeln("<script type=\"text/javascript\">");
+document.writeln("  ( function() {");
+document.writeln("    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };");
+document.writeln("    var unit = {\"calltype\":\"async[2]\",\"publisher\":\"freesion\",\"width\":336,\"height\":280,\"sid\":\"programdevelop\",\"color_site_link\":\"008000\",\"color_text\":\"0AAAFD\",\"color_bg\":\"ffffff\",\"color_button\":\"ffffff\",\"color_button_text\":\"0AAAFD\"};");
+document.writeln("    var placement_id = window.CHITIKA.units.length;");
+document.writeln("    window.CHITIKA.units.push(unit);");
+document.writeln("    document.write('<div id=\"chitikaAdBlock-' + placement_id + '\"></div>');");
+document.writeln("}());");
+document.writeln("</script>");
+document.writeln("<script type=\"text/javascript\" src=\"//cdn.chitika.net/getads.js\" async></script>");

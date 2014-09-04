@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0037)http://www.programdevelop.com/818297/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Eclipse JDT - ASTParser use - Program Develop</title>
+<meta name="keywords" content="Eclipse JDT - ASTParser use, Program Develop">
+<meta name="description" content="Eclipse JDT - ASTParser use. Get program develop articles from programdevelop.com.">
+<link href="./Eclipse JDT - ASTParser use - Program Develop_files/default.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style><script type="text/javascript" src="http://scripts.chitika.net/getads.js"></script></head>
+<body class=" hasGoogleVoiceExt">
+<div id="menu">
+	<ul>
+		<li><a href="http://www.programdevelop.com/" accesskey="1" title="">Home</a></li>
+		<li><a href="http://www.programdevelop.com/PrivacyPolicy.html">Privacy Policy</a></li>
+		<li><a href="http://www.programdevelop.com/disclaimer.html">Disclaimer</a></li>
+		<li><a href="http://www.programdevelop.com/disclosure.html">Disclosure</a></li>
+		<li><a href="mailto:programdevelop@outlook.com">Contact</a></li>
+	</ul>
+</div>
+<!-- end #menu -->
+<div id="page">
+	<div id="content">
+		<div style="padding:0px 5px 0px 5px;">
+			<h1 style="font-weight: normal;display: block;font-size: 2em;color:black;">Eclipse JDT - ASTParser use</h1>
+			<div style="padding:10px 0px 10px 0px">
+				<span style="padding:0px 5px;"><b>Tag</b>: Java, </span> <span style="padding:0px 5px;"><b>Author</b>: abcweekly</span> <span style="padding:0px 5px;"><b>Date</b>: 2009-06-03</span>
+			</div>
+			<script language="javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/easyui.js"></script><script type="text/javascript"> 
+  ( function() {
+    if (window.CHITIKA === undefined) {
+      window.CHITIKA = { 'units' : [] };
+    };
+    var unit = {
+      'publisher' : "freesion",
+      'width' : 728,
+      'height' : 90,
+      'type' : "mpu",
+      'sid' : "programdevelop",
+      'color_site_link' : "0AAAFD",
+      'color_title' : "0AAAFD",
+      'color_border' : "FFFFFF",
+      'color_text' : "000000",
+      'color_bg' : "FFFFFF"
+    };
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'http://scripts.chitika.net/getads.js';
+    try {
+      document.getElementsByTagName('head')[0].appendChild(s);
+    } catch(e) {
+      document.write(s.outerHTML);
+    }
+}());
+</script><div id="chitikaAdBlock-0"></div>
+
+<div style="word-wrap: break-word; word-break: normal;">
+			<link type="text/css" rel="stylesheet" href="./Eclipse JDT - ASTParser use - Program Develop_files/SyntaxHighlighter.css">
+
+<p> <span> The last article describes some of the background knowledge as well as how to create a how the ASTParser Here are some examples of AST.</span> </p> 
+<p></p> 
+<p> <span> Create ASTParser and Java source file is parsed into AST:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//&nbsp;Initialize&nbsp;ASTParser</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASTParser&nbsp;parser&nbsp;=&nbsp;ASTParser.newParser(AST.JLS3);&nbsp;<span class="comment">//initialize&nbsp;&nbsp;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.setKind(ASTParser.K_COMPILATION_UNIT);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//to&nbsp;parse&nbsp;compilation&nbsp;unit</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.setSource(content.toCharArray());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//content&nbsp;is&nbsp;a&nbsp;string&nbsp;which&nbsp;stores&nbsp;the&nbsp;java&nbsp;source</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.setResolveBindings(<span class="keyword">true</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompilationUnit&nbsp;result&nbsp;=&nbsp;(CompilationUnit)&nbsp;parser.createAST(<span class="keyword">null</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">// Initialize ASTParser
+		ASTParser parser = ASTParser.newParser(AST.JLS3); //initialize	
+		parser.setKind(ASTParser.K_COMPILATION_UNIT);	  //to parse compilation unit
+		parser.setSource(content.toCharArray()); 		  //content is a string which stores the java source
+		parser.setResolveBindings(true);
+		CompilationUnit result = (CompilationUnit) parser.createAST(null);</textarea></p> 
+<p></p> 
+<p> <span> Imports () is called to get a series of import statements in the source file:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//show&nbsp;import&nbsp;declarations&nbsp;in&nbsp;order</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;importList&nbsp;=&nbsp;result.imports();&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"import:"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>(Object&nbsp;obj&nbsp;:&nbsp;importList)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ImportDeclaration&nbsp;importDec&nbsp;=&nbsp;(ImportDeclaration)obj;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(importDec.getName());&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">//show import declarations in order
+		List importList = result.imports();  
+		System.out.println("import:");
+		for(Object obj : importList) {
+			ImportDeclaration importDec = (ImportDeclaration)obj;
+			System.out.println(importDec.getName());
+		}</textarea></p> 
+<p></p> 
+<p></p> 
+<p> <span> Call the types () method to get the class name:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//show&nbsp;class&nbsp;name</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;types&nbsp;=&nbsp;result.types();&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TypeDeclaration&nbsp;typeDec&nbsp;=&nbsp;(TypeDeclaration)&nbsp;types.get(<span class="number">0</span><span>);&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"className:"</span><span>+typeDec.getName());&nbsp;&nbsp;</span></span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">//show class name
+		List types = result.types();  
+		TypeDeclaration typeDec = (TypeDeclaration) types.get(0); 
+		System.out.println("className:"+typeDec.getName());</textarea></p> 
+<p></p> 
+<p> <span> The getField method call TypeDeclaration the field defined in class:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//show&nbsp;fields</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FieldDeclaration&nbsp;fieldDec[]=typeDec.getFields();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Fields:"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>(FieldDeclaration&nbsp;field:&nbsp;fieldDec)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Field&nbsp;fragment:"</span><span>+field.fragments());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Field&nbsp;type:"</span><span>+field.getType());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">//show fields
+		FieldDeclaration fieldDec[]=typeDec.getFields();
+		System.out.println("Fields:");
+		for(FieldDeclaration field: fieldDec)
+		{
+			System.out.println("Field fragment:"+field.fragments());
+			System.out.println("Field type:"+field.getType());
+		}</textarea></p> 
+<p></p> 
+<p></p> 
+<p> <span> Call TypeDeclaration getMethods methods defined in the class list of methods; Similarly, you can call various methods to get the MethodDeclaration method method name, parameters, return type, and so on:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//show&nbsp;methods</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MethodDeclaration&nbsp;methodDec[]&nbsp;=&nbsp;typeDec.getMethods();&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Method:"</span><span>);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;(MethodDeclaration&nbsp;method&nbsp;:&nbsp;methodDec)&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//get&nbsp;method&nbsp;name</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SimpleName&nbsp;methodName=method.getName();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"method&nbsp;name:"</span><span>+methodName);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//get&nbsp;method&nbsp;parameters</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;param=method.parameters();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"method&nbsp;parameters:"</span><span>+param);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//get&nbsp;method&nbsp;return&nbsp;type</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type&nbsp;returnType=method.getReturnType2();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"method&nbsp;return&nbsp;type:"</span><span>+returnType);&nbsp;&nbsp;</span></span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">//show methods
+		MethodDeclaration methodDec[] = typeDec.getMethods();  
+		System.out.println("Method:");  
+		for (MethodDeclaration method : methodDec)  
+		{  
+			//get method name
+			SimpleName methodName=method.getName();
+			System.out.println("method name:"+methodName);
+			
+			//get method parameters
+			List param=method.parameters();
+			System.out.println("method parameters:"+param);
+			
+			//get method return type
+			Type returnType=method.getReturnType2();
+			System.out.println("method return type:"+returnType);</textarea></p> 
+<p></p> 
+<p></p> 
+<p> <span> A method corresponding to the contents of a block, can be used getBody (); a block can be decomposed into a series of statements, statements () method can be used to obtain:</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="comment">//get&nbsp;method&nbsp;body</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block&nbsp;body=method.getBody();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;statements=body.statements();&nbsp;&nbsp;&nbsp;<span class="comment">//get&nbsp;the&nbsp;statements&nbsp;of&nbsp;the&nbsp;method&nbsp;body</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iterator&nbsp;iter=statements.iterator();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span><span>(iter.hasNext())&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//get&nbsp;each&nbsp;statement</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statement&nbsp;stmt=(Statement)iter.next();&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">//get method body
+			Block body=method.getBody();
+			List statements=body.statements();   //get the statements of the method body
+			Iterator iter=statements.iterator();
+			while(iter.hasNext())
+			{
+				//get each statement
+				Statement stmt=(Statement)iter.next();</textarea></p> 
+<p></p> 
+<p> <span> Next, you need to source according to the type of each statement corresponding analytical.</span> <span> Statement subclass given here only the categories introduced (specifically, can refer to my previous article: the ASTParser; best to go directly to the the Eclipse documentation official website to view the document).</span> <span> The basic process is to first determine the statement what type of instance, make the appropriate Classcast, and then call the appropriate method.</span> </p> 
+<p></p> 
+<p> <span> 1 ExpressionStatement (including Assignement, MethodInvocation subclass).</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">if</span><span>(stmt&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;ExpressionStatement)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExpressionStatement&nbsp;expressStmt=(ExpressionStatement)&nbsp;stmt;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Expression&nbsp;express=expressStmt.getExpression();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(express&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;Assignment)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assignment&nbsp;assign=(Assignment)express;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"LHS:"</span><span>+assign.getLeftHandSide()+</span><span class="string">";&nbsp;"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Op:"</span><span>+assign.getOperator()+</span><span class="string">";&nbsp;"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"RHS:"</span><span>+assign.getRightHandSide());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(express&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;MethodInvocation)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MethodInvocation&nbsp;mi=(MethodInvocation)&nbsp;express;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"invocation&nbsp;name:"</span><span>+mi.getName());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"invocation&nbsp;exp:"</span><span>+mi.getExpression());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"invocation&nbsp;arg:"</span><span>+mi.arguments());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">if(stmt instanceof ExpressionStatement)
+				{
+					ExpressionStatement expressStmt=(ExpressionStatement) stmt;
+					Expression express=expressStmt.getExpression();
+					
+					if(express instanceof Assignment)
+					{
+						Assignment assign=(Assignment)express;
+						System.out.println("LHS:"+assign.getLeftHandSide()+"; ");
+						System.out.println("Op:"+assign.getOperator()+"; ");
+						System.out.println("RHS:"+assign.getRightHandSide());
+						
+					}
+					else if(express instanceof MethodInvocation)
+					{
+						MethodInvocation mi=(MethodInvocation) express;
+						System.out.println("invocation name:"+mi.getName());
+						System.out.println("invocation exp:"+mi.getExpression());
+						System.out.println("invocation arg:"+mi.arguments());
+						
+					}
+					System.out.println();
+					
+				}</textarea></p> 
+<p></p> 
+<p></p> 
+<p></p> 
+<p> <span> 2 IfStatement</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(stmt&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;IfStatement)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IfStatement&nbsp;ifstmt=(IfStatement)&nbsp;stmt;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InfixExpression&nbsp;wex=(InfixExpression)&nbsp;ifstmt.getExpression();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"if-LHS:"</span><span>+wex.getLeftOperand()+</span><span class="string">";&nbsp;"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"if-op:"</span><span>+wex.getOperator()+</span><span class="string">";&nbsp;"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"if-RHS:"</span><span>+wex.getRightOperand());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">else if(stmt instanceof IfStatement)
+				{
+					IfStatement ifstmt=(IfStatement) stmt;
+					InfixExpression wex=(InfixExpression) ifstmt.getExpression();
+					System.out.println("if-LHS:"+wex.getLeftOperand()+"; ");
+					System.out.println("if-op:"+wex.getOperator()+"; ");
+					System.out.println("if-RHS:"+wex.getRightOperand());
+					System.out.println();
+				}</textarea></p> 
+<p></p> 
+<p> <span> 3 VariableDeclarationStatement</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(stmt&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;VariableDeclarationStatement)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VariableDeclarationStatement&nbsp;var=(VariableDeclarationStatement)&nbsp;stmt;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Type&nbsp;of&nbsp;variable:"</span><span>+var.getType());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Name&nbsp;of&nbsp;variable:"</span><span>+var.fragments());&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">else if(stmt instanceof VariableDeclarationStatement)
+				{
+					VariableDeclarationStatement var=(VariableDeclarationStatement) stmt;
+					System.out.println("Type of variable:"+var.getType());
+					System.out.println("Name of variable:"+var.fragments());
+					System.out.println();
+					
+				}</textarea></p> 
+<p></p> 
+<p> <span> 4 ReturnStatement</span> </p> 
+<p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><a href="http://www.programdevelop.com/818297/#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.programdevelop.com/818297/#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.programdevelop.com/818297/#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(stmt&nbsp;</span><span class="keyword">instanceof</span><span>&nbsp;ReturnStatement)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReturnStatement&nbsp;rtstmt=(ReturnStatement)&nbsp;stmt;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"return:"</span><span>+rtstmt.getExpression());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li></ol></div><textarea cols="50" rows="15" name="code" class="java" style="display: none;">else if(stmt instanceof ReturnStatement)
+				{
+					ReturnStatement rtstmt=(ReturnStatement) stmt;
+					System.out.println("return:"+rtstmt.getExpression());
+					System.out.println();
+				}</textarea></p> 
+<p></p> 
+<p></p> 
+<p> <span> ASTParser as part of the programming language compiler, functional mechanisms can be quite powerful.</span> <span> The above examples are just the tip of the iceberg.</span> <span> Using various resolution ASTParser java source files, the user need only specify the source file, call the ASTParser createAST will be able to get the full AST, the rest is according to the actual needs of the AST manipulate various.</span> </p> 
+<p> <span> Eclipse documentation detailed records of AST types of description, inheritance and so on.</span> <span> In addition, the AST mechanism used in the Eclipse ASTParser have any questions, you can refer to my article: Eclipse JDT - AST entry, which put a lot of relevant information.</span> </p> 
+<p></p> 
+<p> <span> Estimated the next period of time is to continue to study the AST, and also please the master exhibitions ~ ~ ~</span> </p> 
+<p></p> 
+<p> <span> The last sentence of the annoying chatters: please do reproduced, but please indicate the source Oh, must ~ ~ ~ :)</span> </p> 
+<p></p>
+<script class="javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/jquery.js"></script><script class="javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/shCore.js"></script><script type="text/javascript">$(document).ready(function () {dp.SyntaxHighlighter.HighlightAll('code');});</script></div>
+			<script language="javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/extjs.js"></script>
+</div>
+	</div>
+	<!-- end #content -->
+	<div id="sidebar">
+	<script language="javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/jquery(1).js"></script><script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"freesion","width":336,"height":280,"sid":"programdevelop","color_site_link":"008000","color_text":"0AAAFD","color_bg":"ffffff","color_button":"ffffff","color_button_text":"0AAAFD"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script><div id="chitikaAdBlock-1"></div>
+<script type="text/javascript" src="http://cdn.chitika.net/getads.js" async=""></script>
+
+<ul>
+			<li>
+				<h2>Relate</h2>
+					<div style="padding:5px 5px 0px 5px;word-wrap: break-word; word-break: normal;">
+						<ul>
+								<li>
+										<a href="http://www.programdevelop.com/367943/" title="The installation and use on Eclipse" class="link1">The installation and use on Eclipse</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/453988/" title="Eclipse setup, tuning, use" class="link1">Eclipse setup, tuning, use</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/460175/" title="Use in Eclipse SVN [r]" class="link1">Use in Eclipse SVN [r]</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/485852/" title="Use JUnit in Eclipse (translation)" class="link1">Use JUnit in Eclipse (translation)</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1162195/" title="How to use Subversion and Eclipse" class="link1">How to use Subversion and Eclipse</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1164361/" title="The Eclipse not know the use of" class="link1">The Eclipse not know the use of</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1187126/" title="Eclipse CVS configuration and use of (a)" class="link1">Eclipse CVS configuration and use of (a)</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1243252/" title="use of eclipse bookmark the" class="link1">use of eclipse bookmark the</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1258084/" title="the eclipse use of skills" class="link1">the eclipse use of skills</a>
+									</li>
+								<li>
+										<a href="http://www.programdevelop.com/1471062/" title="Eclipse cvs use [drawings]" class="link1">Eclipse cvs use [drawings]</a>
+									</li>
+								</ul>
+							</div>
+			</li>
+		</ul>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+	<p id="legal">Copyright © 2008-2014. Designed by <a href="http://www.programdevelop.com/">programdevelop</a></p>
+</div>
+<script type="text/javascript" src="./Eclipse JDT - ASTParser use - Program Develop_files/jquery-plugins.js"></script><div style="display: none;">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000421654'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000421654%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1000421654"></span><script src="./Eclipse JDT - ASTParser use - Program Develop_files/z_stat.php" type="text/javascript"></script>
+</div>
+<script type="text/javascript">
+var infolinks_pid = 2136830;
+var infolinks_wsid = 2;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+
+</body></html>
